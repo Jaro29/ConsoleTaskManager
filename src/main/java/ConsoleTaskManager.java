@@ -1,4 +1,5 @@
 import org.apache.commons.lang3.ArrayUtils;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -93,6 +94,9 @@ public class ConsoleTaskManager {
         String toFile;
         List<String> outList = new ArrayList<>();
         try {
+            if (tasks.length - 1 < 0) {
+                Files.writeString(path1, "");
+            }
             for (int i = 0; i < tasks.length; i++) {
                 toFile = tasks[i][0] + ", " + tasks[i][1] + ", " + tasks[i][2];
                 outList.add(toFile);
